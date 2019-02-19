@@ -165,7 +165,11 @@ export default class WebViewQuillEditor extends React.Component {
         <WebView
           style={{ ...StyleSheet.absoluteFillObject }}
           ref={this.createWebViewRef}
-          source={{ uri: INDEX_FILE_ASSET_URI }}
+          source={
+            Platform.OS === 'ios'
+              ? require('./assets/dist/reactQuillEditor-index.html')
+              : { uri: INDEX_FILE_ASSET_URI }
+          }
           onLoadEnd={this.onWebViewLoaded}
           onMessage={this.handleMessage}
           startInLoadingState={true}
