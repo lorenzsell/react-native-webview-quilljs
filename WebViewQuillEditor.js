@@ -18,7 +18,7 @@ import { Asset } from 'expo';
 
 // path to the file that the webview will load
 
-const INDEX_FILE_PATH = `./assets/dist/reactQuillEditor-index.html`;
+const INDEX_FILE_PATH = `../assets/dist/reactQuillEditor-index.html`;
 const INDEX_FILE_ASSET_URI = Asset.fromModule(require(INDEX_FILE_PATH)).uri;
 const MESSAGE_PREFIX = 'react-native-webview-quilljs';
 
@@ -167,7 +167,7 @@ export default class WebViewQuillEditor extends React.Component {
           ref={this.createWebViewRef}
           source={
             Platform.OS === 'ios'
-              ? require('./assets/dist/reactQuillEditor-index.html')
+              ? require(INDEX_FILE_PATH)
               : { uri: INDEX_FILE_ASSET_URI }
           }
           onLoadEnd={this.onWebViewLoaded}
